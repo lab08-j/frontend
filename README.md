@@ -55,6 +55,7 @@ tests/
 Os testes ficam em `tests/`, espelhando o caminho do arquivo testado em `src/`:
 `src/components/ui/button.tsx` é testado em `tests/unit/components/ui/button.test.tsx`.
 Os arquivos de teste terminam em `.test.ts` ou `.test.tsx`.
+O guia completo, com o que já é testado e quando criar um teste, está em [tests/tests.md](tests/tests.md).
 
 ## Qualidade automática
 
