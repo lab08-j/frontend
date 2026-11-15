@@ -66,14 +66,20 @@ Teste unitário novo é combinado com o time antes de entrar.
 
 ### `tests/integration/app/community-layout.test.tsx`
 
-Testa o layout das páginas da comunidade (`src/app/(community)/layout.tsx`), que junta `SiteHeader`, `Logo`, `Container` e `SiteFooter`.
+Testa o layout das páginas da comunidade (`src/app/(community)/layout.tsx`), que junta o header com a navbar (`SiteHeader`, `Logo`, `SiteSearch`, `WriteButton`, `NotificationsButton`, `UserMenu`, `MobileNav`), o `Container` e o `SiteFooter`.
 
-| Teste                                     | O que garante                                                                                                                                                                             |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `renders header, main content and footer` | o header (`<header>`) aparece com o logo, a página entra dentro do `<main>` (e não no header ou no footer) e o footer (`<footer>`) existe                                                 |
-| `offers a skip link to the main content`  | o link "Pular para o conteúdo" aponta para `#conteudo` e o `<main>` tem `id="conteudo"`. O link aparece ao navegar com Tab e pula o header; o teste pega se só um dos lados for renomeado |
+| Teste                                                            | O que garante                                                                                                                                                                             |
+| ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `renders header, main content and footer`                        | o header (`<header>`) aparece com o logo, a página entra dentro do `<main>` (e não no header ou no footer) e o footer (`<footer>`) existe                                                 |
+| `offers a skip link to the main content`                         | o link "Pular para o conteúdo" aponta para `#conteudo` e o `<main>` tem `id="conteudo"`. O link aparece ao navegar com Tab e pula o header; o teste pega se só um dos lados for renomeado |
+| `shows search, write, notifications and user menu in the navbar` | a navbar mostra o campo de busca, o link "Escrever" para `/nova-publicacao`, o link de notificações e o botão do menu do usuário                                                          |
+| `swaps "Escrever" for "Explorar Feed" on the new post page`      | em `/nova-publicacao` o botão principal vira "Explorar Feed" e leva para `/`, como no Figma                                                                                               |
+| `opens the mobile menu with the community sections`              | o botão "Abrir menu" abre o painel lateral com a navegação das seções, e a seção da rota atual ("Feed Principal" em `/`) vem marcada com `aria-current="page"`                            |
+| `lists the footer links`                                         | o footer tem a navegação "Rodapé" com os 4 links, na ordem do Figma                                                                                                                       |
 
 Detalhe do `render`: todo layout do Next recebe `params` (os parâmetros da URL, como o `id` em `/posts/[id]`). Essa rota não tem parâmetros, então o teste passa `params={Promise.resolve({})}`.
+
+Detalhe da rota atual: alguns componentes da navbar leem a rota com `usePathname` (do `next/navigation`), que não existe fora do Next. O teste substitui essa função com `vi.mock` e controla a rota pela variável `navigation.pathname`, voltando para `/` antes de cada teste.
 
 ## Como escrever um teste
 
