@@ -7,7 +7,18 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
-    include: ['src/**/*.test.{ts,tsx}'],
     css: false,
+    // A project can be empty (e.g. no unit tests yet) without failing the run.
+    passWithNoTests: true,
+    projects: [
+      {
+        extends: true,
+        test: { name: 'unit', include: ['tests/unit/**/*.test.{ts,tsx}'] },
+      },
+      {
+        extends: true,
+        test: { name: 'integration', include: ['tests/integration/**/*.test.{ts,tsx}'] },
+      },
+    ],
   },
 });
