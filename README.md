@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Juniando | Frontend
 
-## Getting Started
+Frontend da **Juniando**, a comunidade do LAB08 para quem está começando na programação. Aqui ficam o feed de publicações, a página de cada post, o login (e-mail ou GitHub), o cadastro e o perfil.
 
-First, run the development server:
+O frontend conversa com duas APIs:
+
+| API         | Responsabilidade                                            | Variável       |
+| ----------- | ----------------------------------------------------------- | -------------- |
+| Node.js     | autenticação: cadastro, login, GitHub OAuth e refresh token | `AUTH_API_URL` |
+| Spring Boot | posts, votos e upload de imagens                            | `CORE_API_URL` |
+
+## Stack
+
+- [Next.js 16](https://nextjs.org/docs) (App Router, React Compiler, Cache Components) com React 19 e TypeScript
+- [Tailwind CSS 4](https://tailwindcss.com/docs)
+- [Vitest](https://vitest.dev) e [Testing Library](https://testing-library.com/docs/react-testing-library/intro/) para testes unitários e de componentes
+- ESLint, Prettier, Husky, lint-staged e commitlint para padronizar o código e os commits
+
+## Como rodar
+
+Pré-requisito: **Node 24** (use `nvm use` para ler o `.nvmrc`).
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # ajuste as URLs das APIs
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Script              | O que faz                                               |
+| ------------------- | ------------------------------------------------------- |
+| `npm run dev`       | servidor de desenvolvimento                             |
+| `npm run build`     | build de produção                                       |
+| `npm run start`     | serve o build de produção                               |
+| `npm run lint`      | ESLint (`lint:fix` corrige o que der)                   |
+| `npm run format`    | formata tudo com Prettier (`format:check` só verifica)  |
+| `npm run typecheck` | gera os tipos de rotas do Next e roda `tsc`             |
+| `npm run test`      | testes unitários uma vez (`test:watch` fica observando) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Estrutura
 
-## Learn More
+```
+src/
+  app/          rotas (App Router)
+  components/   componentes reutilizáveis
+  services/     clientes das APIs (authApi, coreApi)
+```
 
-To learn more about Next.js, take a look at the following resources:
+Os testes unitários ficam ao lado do arquivo testado: `button.tsx` e `button.test.tsx`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Qualidade automática
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **pre-commit:** ESLint e Prettier rodam só nos arquivos do commit.
+- **commit-msg:** o commitlint valida a mensagem no padrão [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/), em inglês (ex.: `feat(feed): add pagination`).
+- **pre-push:** typecheck e testes unitários.
