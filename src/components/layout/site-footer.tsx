@@ -1,13 +1,16 @@
-import type { ReactNode } from 'react';
+import Link from 'next/link';
 
 import { Container } from './container';
 
-type SiteFooterProps = {
-  /** Footer links, rendered on the right on wide screens. */
-  children?: ReactNode;
-};
+// Pages still to be built; Discord waits for the server invite URL.
+const FOOTER_LINKS = [
+  { label: 'Diretrizes de Convivência', href: '/diretrizes' },
+  { label: 'Artigos', href: '/artigos' },
+  { label: 'Discord', href: '#' },
+  { label: 'Mentoria Voluntária', href: '/mentoria' },
+] as const;
 
-export function SiteFooter({ children }: SiteFooterProps) {
+export function SiteFooter() {
   return (
     <footer className="bg-surface-lowest py-12">
       <Container className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -17,7 +20,20 @@ export function SiteFooter({ children }: SiteFooterProps) {
           </span>
           — O lar acolhedor para devs em evolução.
         </p>
-        {children}
+        <nav aria-label="Rodapé">
+          <ul className="flex flex-wrap gap-x-4 gap-y-2">
+            {FOOTER_LINKS.map((link) => (
+              <li key={link.label}>
+                <Link
+                  href={link.href}
+                  className="rounded-sm text-sm leading-[22px] text-subtle-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </Container>
     </footer>
   );

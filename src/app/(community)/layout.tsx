@@ -1,4 +1,5 @@
 import { Container } from '@/components/layout/container';
+import { DEMO_USER } from '@/components/layout/demo-user';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { SiteHeader } from '@/components/layout/site-header';
 
@@ -16,7 +17,7 @@ export default function CommunityLayout({ children }: LayoutProps<'/'>) {
       >
         Pular para o conteúdo
       </a>
-      <SiteHeader />
+      <SiteHeader user={DEMO_USER} />
       <main id="conteudo" tabIndex={-1} className="flex-1 py-7 outline-none">
         <Container>{children}</Container>
       </main>
