@@ -13,7 +13,7 @@ O frontend conversa com duas APIs:
 
 - [Next.js 16](https://nextjs.org/docs) (App Router, React Compiler, Cache Components) com React 19 e TypeScript
 - [Tailwind CSS 4](https://tailwindcss.com/docs)
-- [Vitest](https://vitest.dev) e [Testing Library](https://testing-library.com/docs/react-testing-library/intro/) para testes unitários e de componentes
+- [Vitest](https://vitest.dev) e [Testing Library](https://testing-library.com/docs/react-testing-library/intro/) para testes unitários e de integração
 - ESLint, Prettier, Husky, lint-staged e commitlint para padronizar o código e os commits
 
 ## Como rodar
@@ -28,15 +28,17 @@ npm run dev                  # http://localhost:3000
 
 ## Scripts
 
-| Script              | O que faz                                               |
-| ------------------- | ------------------------------------------------------- |
-| `npm run dev`       | servidor de desenvolvimento                             |
-| `npm run build`     | build de produção                                       |
-| `npm run start`     | serve o build de produção                               |
-| `npm run lint`      | ESLint (`lint:fix` corrige o que der)                   |
-| `npm run format`    | formata tudo com Prettier (`format:check` só verifica)  |
-| `npm run typecheck` | gera os tipos de rotas do Next e roda `tsc`             |
-| `npm run test`      | testes unitários uma vez (`test:watch` fica observando) |
+| Script                     | O que faz                                              |
+| -------------------------- | ------------------------------------------------------ |
+| `npm run dev`              | servidor de desenvolvimento                            |
+| `npm run build`            | build de produção                                      |
+| `npm run start`            | serve o build de produção                              |
+| `npm run lint`             | ESLint (`lint:fix` corrige o que der)                  |
+| `npm run format`           | formata tudo com Prettier (`format:check` só verifica) |
+| `npm run typecheck`        | gera os tipos de rotas do Next e roda `tsc`            |
+| `npm run test`             | todos os testes uma vez (`test:watch` fica observando) |
+| `npm run test:unit`        | só os testes unitários                                 |
+| `npm run test:integration` | só os testes de integração                             |
 
 ## Estrutura
 
@@ -45,12 +47,18 @@ src/
   app/          rotas (App Router)
   components/   componentes reutilizáveis
   services/     clientes das APIs (authApi, coreApi)
+tests/
+  unit/         uma peça isolada (componente, hook, função)
+  integration/  várias peças juntas (layouts, páginas, fluxos)
 ```
 
-Os testes unitários ficam ao lado do arquivo testado: `button.tsx` e `button.test.tsx`.
+Os testes ficam em `tests/`, espelhando o caminho do arquivo testado em `src/`:
+`src/components/ui/button.tsx` é testado em `tests/unit/components/ui/button.test.tsx`.
+Os arquivos de teste terminam em `.test.ts` ou `.test.tsx`.
+O guia completo, com o que já é testado e quando criar um teste, está em [tests/tests.md](tests/tests.md).
 
 ## Qualidade automática
 
 - **pre-commit:** ESLint e Prettier rodam só nos arquivos do commit.
 - **commit-msg:** o commitlint valida a mensagem no padrão [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/), em inglês (ex.: `feat(feed): add pagination`).
-- **pre-push:** typecheck e testes unitários.
+- **pre-push:** typecheck e todos os testes.
