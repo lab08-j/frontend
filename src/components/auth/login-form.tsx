@@ -36,6 +36,42 @@ export default function LoginForm() {
               julgamentos.
             </p>
           </div>
+
+          <form className="mt-8 space-y-5">
+            <div className="space-y-2">
+              <label htmlFor="identifier" className="text-sm font-medium text-[#E4E4E7]">
+                E-mail, usuário ou telefone
+              </label>
+
+              <div className="relative">
+                <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-[#71717A]">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-3 6.7" />
+                  </svg>
+                </div>
+
+                <input
+                  id="identifier"
+                  name="identifier"
+                  type="text"
+                  autoComplete="username"
+                  placeholder="seu@email.com ou usuário"
+                  className="h-12 w-full rounded-xl border border-white/10 bg-[#10131B] pr-4 pl-11 text-sm text-white transition-all outline-none placeholder:text-[#71717A] focus:border-[#8B5CF6] focus:ring-2 focus:ring-[#8B5CF6]/20"
+                />
+              </div>
+            </div>
+          </form>
         </section>
       </div>
     </main>
