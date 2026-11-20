@@ -149,6 +149,28 @@ export default function LoginForm() {
                 </button>
               </div>
             </div>
+
+            <div className="flex items-center justify-between gap-4">
+              <label
+                htmlFor="remember"
+                className="flex cursor-pointer items-center gap-2 text-sm text-[#A1A1AA]"
+              >
+                <input
+                  id="remember"
+                  name="remember"
+                  type="checkbox"
+                  className="h-4 w-4 cursor-pointer rounded border-white/20 bg-[#10131B] accent-[#8B5CF6] focus:ring-2 focus:ring-[#8B5CF6]/30"
+                />
+                Lembrar de mim
+              </label>
+
+              <Link
+                href="/forgot-password"
+                className="text-sm font-medium text-[#A78BFA] transition-colors hover:text-[#C4B5FD]"
+              >
+                Esqueceu sua senha?
+              </Link>
+            </div>
           </form>
         </section>
       </div>
