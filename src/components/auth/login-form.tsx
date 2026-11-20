@@ -20,8 +20,11 @@ export default function LoginForm() {
         <section className="mt-8 rounded-2xl border border-white/[0.03] bg-[#171A23] px-6 py-10 shadow-2xl sm:px-10">
           <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#49365F] bg-[#29213A] px-3 py-1 text-xs font-medium text-[#D4A5FF]">
-              <span>✦</span>
-              Juniando - comunidade dev
+              <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#8B5CF6] text-sm font-bold text-white">
+                J
+              </span>
+
+              <span>Juniando • comunidade dev</span>
             </div>
 
             <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
