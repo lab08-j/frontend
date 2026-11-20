@@ -23,7 +23,7 @@ export default function LoginForm() {
           </Link>
         </header>
 
-        <div className="mx-auto mt-12 flex w-full max-w-md items-center justify-between gap-3">
+        <div className="mx-auto mt-8 flex w-full max-w-md flex-wrap items-center justify-between gap-3 sm:mt-12">
           <Link href="/" className="text-xs text-[#A1A1AA] transition-colors hover:text-white">
             ← Voltar para o feed
           </Link>
@@ -34,7 +34,7 @@ export default function LoginForm() {
           </div>
         </div>
 
-        <section className="mx-auto mt-3 w-full max-w-lg rounded-2xl border border-white/[0.03] bg-[#171A23] px-6 py-8 shadow-2xl sm:px-8">
+        <section className="mx-auto mt-3 w-full max-w-lg rounded-2xl border border-white/[0.03] bg-[#171A23] px-5 py-7 shadow-2xl sm:px-8 sm:py-8">
           <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#49365F] bg-[#29213A] px-3 py-1 text-xs font-medium text-[#D4A5FF]">
               <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#8B5CF6] text-sm font-bold text-white">
@@ -316,7 +316,7 @@ export default function LoginForm() {
           </form>
         </section>
 
-        <footer className="max-w-lm mx-auto mt-10 w-full pb-6 text-center">
+        <footer className="mx-auto mt-10 w-full max-w-5xl pb-6 text-center">
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-[#71717A]">
             <span>✦ Livre de julgamentos</span>
             <span>✦ Código aberto e trocas reais</span>
@@ -342,7 +342,7 @@ export default function LoginForm() {
             </Link>
           </nav>
 
-          <div className="mt-8 flex items-center justify-between text-xs text-[#52525B]">
+          <div className="mt-8 flex flex-col items-center justify-between gap-4 text-xs text-[#52525B] sm:flex-row">
             <span>Juniando - Um espaço acolhedor para quem está começando na tecnologia.</span>
             <nav className="flex items-center gap-4">
               <Link href="/guidelines" className="transition-colors hover:text-white">
