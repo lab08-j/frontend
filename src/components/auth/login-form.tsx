@@ -301,6 +301,18 @@ export default function LoginForm() {
                 <path d="m9 18 6-6-6-6" />
               </svg>
             </button>
+
+            <div className="mt-6 text-center">
+              <p className="text-sm text-[#A1A1AA]">
+                Primeira vez por aqui?{' '}
+                <Link
+                  href="/register"
+                  className="font-semibold text-[#A78BFA] transition-colors hover:text-[#C4B5FD]"
+                >
+                  Crie sua conta em 30 segundos
+                </Link>
+              </p>
+            </div>
           </form>
         </section>
       </div>
