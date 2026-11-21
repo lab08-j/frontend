@@ -2,12 +2,12 @@
 
 import Link from 'next/link';
 import { Button } from '../ui/button';
-import { AuthFooter } from '@/app/(auth)/auth-footer';
-import { AuthDivider } from '@/app/(auth)/auth-divider';
-import { SocialLogin } from '@/app/(auth)/social-login';
-import { FormField } from '@/app/(auth)/form-field';
-import { PasswordField } from '@/app/(auth)/password-field';
-import { AuthIntro } from '@/app/(auth)/auth-intro';
+import { AuthFooter } from './auth-footer';
+import { AuthDivider } from './auth-divider';
+import { SocialLogin } from './social-login';
+import { FormField } from './form-field';
+import { PasswordField } from './password-field';
+import { AuthIntro } from './auth-intro';
 
 export default function LoginForm() {
   return (
