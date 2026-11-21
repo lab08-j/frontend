@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { Button } from '../ui/button';
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -186,9 +187,9 @@ export default function LoginForm() {
               </Link>
             </div>
 
-            <button
+            <Button
               type="button"
-              className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#8B5CF6] text-sm font-semibold text-white shadow-lg shadow-[#8B5CF6]/20 transition-all hover:bg-[#7C3AED] active:scale-[0.98]"
+              className="mt-3 h-12 w-full gap-2 rounded-xl bg-[#8B5CF6] text-sm font-semibold text-white shadow-lg shadow-[#8B5CF6]/20 transition-all hover:bg-[#7C3AED] active:scale-[0.98]"
             >
               Entrar
               <svg
@@ -205,7 +206,7 @@ export default function LoginForm() {
                 <path d="M5 12h14" />
                 <path d="m12 5 7 7-7 7" />
               </svg>
-            </button>
+            </Button>
 
             <div className="relative py-2">
               <div className="absolute inset-0 flex items-center">
