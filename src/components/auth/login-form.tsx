@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '../ui/button';
+import { AuthFooter } from '@/app/(auth)/auth-footer';
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -317,49 +318,7 @@ export default function LoginForm() {
           </form>
         </section>
 
-        <footer className="mx-auto mt-10 w-full max-w-5xl pb-6 text-center">
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-[#71717A]">
-            <span>✦ Livre de julgamentos</span>
-            <span>✦ Código aberto e trocas reais</span>
-            <span>✦ 100% gratuito para sempre</span>
-          </div>
-
-          <div className="my-6 h-px w-full bg-white/[0.06]" />
-
-          <nav
-            aria-label="Links institucionais"
-            className="flex flex-wrap items-center justify-center gap-5 text-xs text-[#71717A]"
-          >
-            <Link href="/guidelines" className="transition-colors hover:text-white">
-              Diretrizes
-            </Link>
-
-            <Link href="/terms" className="transition-colors hover:text-white">
-              Termos de uso
-            </Link>
-
-            <Link href="/privacy" className="transition-colors hover:text-white">
-              Privacidade
-            </Link>
-          </nav>
-
-          <div className="mt-8 flex flex-col items-center justify-between gap-4 text-xs text-[#52525B] sm:flex-row">
-            <span>Juniando - Um espaço acolhedor para quem está começando na tecnologia.</span>
-            <nav className="flex items-center gap-4">
-              <Link href="/guidelines" className="transition-colors hover:text-white">
-                Diretrizes
-              </Link>
-
-              <Link href="/terms" className="transition-colors hover:text-white">
-                Termos de uso
-              </Link>
-
-              <Link href="/privacy" className="transition-colors hover:text-white">
-                Privacidade
-              </Link>
-            </nav>
-          </div>
-        </footer>
+        <AuthFooter />
       </div>
     </main>
   );
