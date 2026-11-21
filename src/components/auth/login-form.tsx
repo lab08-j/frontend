@@ -7,6 +7,7 @@ import { AuthDivider } from '@/app/(auth)/auth-divider';
 import { SocialLogin } from '@/app/(auth)/social-login';
 import { FormField } from '@/app/(auth)/form-field';
 import { PasswordField } from '@/app/(auth)/password-field';
+import { AuthIntro } from '@/app/(auth)/auth-intro';
 
 export default function LoginForm() {
   return (
@@ -38,24 +39,7 @@ export default function LoginForm() {
         </div>
 
         <section className="mx-auto mt-3 w-full max-w-lg rounded-2xl border border-white/[0.03] bg-[#171A23] px-5 py-7 shadow-2xl sm:px-8 sm:py-8">
-          <div className="text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#49365F] bg-[#29213A] px-3 py-1 text-xs font-medium text-[#D4A5FF]">
-              <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#8B5CF6] text-sm font-bold text-white">
-                J
-              </span>
-
-              <span>Juniando • comunidade dev</span>
-            </div>
-
-            <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-              Boas-vindas ao Juniando
-            </h1>
-
-            <p className="mt-3 text-sm leading-relaxed text-[#A1A1AA]">
-              O espaço aberto para devs compartilharem dúvidas, códigos e evoluírem juntos sem
-              julgamentos.
-            </p>
-          </div>
+          <AuthIntro />
 
           <form className="mt-8 space-y-5">
             <FormField
